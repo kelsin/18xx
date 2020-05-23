@@ -19,6 +19,11 @@ module Engine
         true
       end
 
+      def inspect
+        name = self.class.name.split('::').last
+        "<#{name}: num: #{num}>"
+      end
+
       def rotate(ticks)
         edge = Edge.new((@num + ticks) % 6)
         edge.index = index

@@ -14,7 +14,11 @@ module View
 
       def render
         @tile.towns.map do |town|
-          if @tile.lawson? || @tile.paths.empty?
+          paths = @tile.paths.select do |path|
+            path.a == town || path.b == town
+          end
+
+          if @tile.lawson? || paths.empty?
             h(Part::TownDot, town: town, tile: @tile, region_use: @region_use, color: color_for(town))
           else
             h(Part::TownRect, town: town, region_use: @region_use, color: color_for(town))

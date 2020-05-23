@@ -77,7 +77,7 @@ module Engine
 
       def inspect
         name = self.class.name.split('::').last
-        "<#{name}: hex: #{hex&.name}, exit: #{exits}>"
+        "<#{name}: hex: #{hex&.name}, exit: #{exits}, a: #{a.inspect}, b: #{b.inspect}>"
       end
 
       private
